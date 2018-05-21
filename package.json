@@ -1,0 +1,23 @@
+{
+  "name": "tic-tac-proyect",
+  "version": "1.0.0",
+  "description": "Juego de Tic Tac",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iukones/tic-tac-proyect.git"
+  },
+  "author": "iukones",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iukones/tic-tac-proyect/issues"
+  },
+  "homepage": "https://github.com/iukones/tic-tac-proyect#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.4"
+  }
+}
