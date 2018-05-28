@@ -1,4 +1,4 @@
-// 1. Basic Setup 
+// 1. Basic Setup
 // 2. Determine Winner
 // 3. Basic AI and winner notification
 // 4. Minimax algorithm!
@@ -17,7 +17,7 @@ const winCombos = [
     [2, 5, 8],
     [0, 4, 8],
     [6, 4, 2]
-    
+
 ];
 
 const cells = document.querySelectorAll('.cell');
@@ -32,7 +32,7 @@ function startGame() {
         cells[i].innerText = '';
         cells[i].style.removeProperty('background-color');
         cells[i].addEventListener('click', turnClick, false);
-        
+
     }
 }
 
@@ -44,4 +44,22 @@ function turnClick(square) {
 function turn(squareId, player) {
     originBoard[squareId] = player;
     document.getElementById(squareId).innerText = player;
+    // Determine Winner
+    let gameWinner = checkWinner(originBoard, player);
+    if (gameWinner) gameOver(gameWinner);
 }
+
+// funcion de verificacion de Winner
+function checkWinner(board, player) {
+    let plays = board.reduce((acumulate, element, index) =>
+        (element === player)) ? acumulate.concat(index) : acumulate, [];
+    let gameWinner = null;
+    for (let [index, win] of winCombos.entries()) {
+        if (win.every(elem => plays.indexOf(elem > -1))) {
+            gameWinner = {index: index, player: player};
+            break;
+        }
+    }
+    return gameWinner;
+}
+
